@@ -1,0 +1,6 @@
+{
+  "name": "EULER — The Muse Inu",
+  "description": "A website for EULER, the muse dog paired with $META.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
