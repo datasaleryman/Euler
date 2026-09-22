@@ -67,6 +67,25 @@ a{color:inherit}
   font:700 .83rem 'DM Sans';cursor:pointer;transition:.2s
 }
 .navlinks button:hover{transform:translateY(-2px);background:#f5e3fb}
+.navTwitterLink{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:#0f1419;
+  color:#fff;
+  padding:8px 14px;
+  border-radius:999px;
+  font:700 .82rem 'DM Sans';
+  text-decoration:none;
+  transition:.2s;
+  box-shadow:0 3px 10px rgba(0,0,0,.12);
+}
+.navTwitterLink:hover{
+  background:#262a2d;
+  color:#fff;
+  transform:translateY(-2px);
+  box-shadow:0 5px 14px rgba(0,0,0,.18);
+}
 
 .hero{
   margin-top:18px;
@@ -267,6 +286,59 @@ h1{
 }
 .actionBtn.primary:hover{
   background:#472c4c;
+}
+.twitterBtn{
+  background:#0f1419;
+  color:#fff;
+  border-color:#0f1419;
+}
+.twitterBtn:hover{
+  background:#262a2d;
+  color:#fff;
+  border-color:#262a2d;
+  transform:translateY(-1px);
+}
+.chipLink{
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+  transition:.2s;
+  border-color:#e2d2dc;
+}
+.chipLink:hover{
+  border-color:#9f5db3;
+  background:#fff;
+  transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(89,54,84,.1);
+}
+.footerSocials{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:14px;
+}
+.footerSocialBtn{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  background:#fff;
+  border:1px solid #e2d2dc;
+  border-radius:999px;
+  padding:7px 16px;
+  font:700 .82rem 'DM Sans';
+  color:#5d3d63;
+  text-decoration:none;
+  transition:.2s;
+  box-shadow:0 2px 6px rgba(0,0,0,.04);
+}
+.footerSocialBtn:hover{
+  background:#0f1419;
+  color:#fff;
+  border-color:#0f1419;
+  transform:translateY(-2px);
+  box-shadow:0 4px 10px rgba(0,0,0,.15);
 }
 .mcapBadge{
   display:inline-flex;
@@ -695,6 +767,12 @@ h1{
       <button onclick="go('feesharing')">💎 fee sharing</button>
       <button onclick="go('eligibility')">🎁 check eligibility</button>
       <button onclick="go('history')">📜 tx history</button>
+      <a href="https://x.com/museinumeta" target="_blank" rel="noopener" class="navTwitterLink" title="Follow @museinumeta on X (Twitter)">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:inline-block;vertical-align:-1px;">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        <span>𝕏 Twitter</span>
+      </a>
     </div>
   </nav>
 
@@ -715,6 +793,12 @@ h1{
       <button class="actionBtn" onclick="copyFeeSharingContract()" title="Copy Fee Sharing Contract Address">
         <span>💎 Fee Sharing CA</span>
       </button>
+      <a href="https://x.com/museinumeta" target="_blank" rel="noopener" class="actionBtn twitterBtn" title="Follow @museinumeta on X (Twitter)">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:inline-block;vertical-align:-1px;">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        <span>𝕏 @museinumeta</span>
+      </a>
       <a href="https://robinscan.io/token/0xeF98ce19f96D53Ed37bb8E217070F12967936AAA" target="_blank" rel="noopener" class="actionBtn" title="View on Robinscan (Robinhood Chain Explorer)">
         ↗ Robinscan
       </a>
@@ -748,6 +832,10 @@ h1{
           <div class="chip" onclick="copyContract()" style="cursor:pointer;" title="Click to copy token contract address"><small>Token (Robinhood Chain)</small><strong id="heroCaShort">0xeF98...6AAA 📋</strong></div>
           <div class="chip" onclick="copyFeeSharingContract()" style="cursor:pointer;" title="Click to copy holder fee sharing contract address"><small>Holder Fee Sharing</small><strong>0x71Fee...8412 📋</strong></div>
           <div class="chip"><small>Live Market Cap</small><strong id="heroMcapVal">$148,830</strong></div>
+          <a href="https://x.com/museinumeta" target="_blank" rel="noopener" class="chip chipLink" title="Visit Euler on X (Twitter)">
+            <small>Twitter / X</small>
+            <strong>𝕏 @museinumeta ↗</strong>
+          </a>
         </div>
         <div class="sticker">smart pup. soft paws. big ideas.</div>
       </div>
@@ -1046,8 +1134,22 @@ h1{
   </section>
 
   <footer class="footer">
+    <div class="footerSocials">
+      <a href="https://x.com/museinumeta" target="_blank" rel="noopener" class="footerSocialBtn" title="Follow @museinumeta on X (Twitter)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:inline-block;vertical-align:-1px;">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        <span>Follow @museinumeta</span>
+      </a>
+      <a href="https://robinscan.io/token/0xeF98ce19f96D53Ed37bb8E217070F12967936AAA" target="_blank" rel="noopener" class="footerSocialBtn" title="View on Robinscan">
+        <span>↗ Robinscan</span>
+      </a>
+      <a href="https://dexscreener.com/robinhood/0xeF98ce19f96D53Ed37bb8E217070F12967936AAA" target="_blank" rel="noopener" class="footerSocialBtn" title="View DEX Chart on DexScreener">
+        <span>📈 DexScreener</span>
+      </a>
+    </div>
     <div class="paws">🐾 🐾 🐾</div>
-    EULER · MUSEINU · META
+    EULER · MUSEINU · META on Robinhood Chain
   </footer>
 </div>
 
