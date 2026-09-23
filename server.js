@@ -8,6 +8,17 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = 3000;
 
+// Enable CORS for AI Studio iframes and development preview URLs
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 app.use(express.json());
 app.use(express.static(__dirname));
 
@@ -65,6 +76,7 @@ function getSimulatedTokenStats() {
 
 // 1. Real-time Market Cap & Token Stats API
 app.get('/api/token-stats', async (req, res) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
   const now = Date.now();
   // Return cached data if within 8 seconds
   if (tokenStatsCache.data && now - tokenStatsCache.timestamp < 8000) {
@@ -74,7 +86,7 @@ app.get('/api/token-stats', async (req, res) => {
   try {
     // Try DexScreener API with timeout
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 2500);
+    const timeoutId = setTimeout(() => controller.abort(), 2200);
 
     const dexRes = await fetch(
       `https://api.dexscreener.com/latest/dex/tokens/${CONTRACT_ADDRESS}`,
@@ -84,7 +96,7 @@ app.get('/api/token-stats', async (req, res) => {
     clearTimeout(timeoutId);
 
     if (dexRes && dexRes.ok) {
-      const dexData = await dexRes.json();
+      const dexData = await dexRes.json().catch(() => null);
       if (dexData && dexData.pairs && dexData.pairs.length > 0) {
         const pair = dexData.pairs[0];
         const mcap = pair.fdv || pair.marketCap || (pair.priceUsd ? pair.priceUsd * TOTAL_SUPPLY : 0);
