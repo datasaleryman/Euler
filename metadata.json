@@ -1,6 +1,6 @@
 {
   "name": "EULER — The Muse Inu",
-  "description": "A website for EULER ($MUSEINU), the muse dog paired with $META on Robinhood Chain, featuring real-time market cap, holder fee sharing, eligibility checking, and transaction history.",
+  "description": "A website for EULER ($MUSEINU), the muse dog paired with $META on Robinhood Chain, featuring real-time market cap, holder fee sharing, eligibility checking, transaction history, and integrated Euler Studio.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
